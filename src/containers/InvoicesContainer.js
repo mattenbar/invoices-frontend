@@ -1,0 +1,26 @@
+import React from 'react'
+import {connect} from 'react-redux'
+import Invoices from '../components/Invoices'
+
+class InvoicesContainer extends React.Component {
+
+
+  render() {
+    return (
+      <div>
+        <Invoices />
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    invoices: state.invoices
+  }
+}
+
+
+
+
+export default connect(mapStateToProps)(InvoicesContainer)

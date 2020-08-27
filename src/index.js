@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import thunk from 'redux-thunk'
 import App from './App';
-import manageInvoice from './reducers/manageInvoice';
+import manageInvoices from './reducers/manageInvoice'
 
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-
-const store = createStore(manageInvoice)
+const store = createStore(manageInvoices, composeEnhancers(applyMiddleware(thunk)))
 
 
 ReactDOM.render(

@@ -13,7 +13,7 @@ class Invoices extends Component {
   render(){
     return (
        <div>
-        {this.props.invoices.map(invoice => <Invoice key={invoice.attributes.id} invoices={invoice.attributes} 
+        {this.props.invoices.map(invoice => <Invoice key={invoice.attributes.id} invoice={invoice.attributes} 
         customers={
           this.props.customers
         }

@@ -11,7 +11,7 @@ class Invoices extends Component {
   }
   
   render(){
-    console.log(this.props.invoices)
+    console.log(this.props.invoices.invoices)
     return (
        <div>
         {this.props.invoices.map(invoice => <Invoice key={invoice.attributes.id} attributes={invoice.attributes}/>)}

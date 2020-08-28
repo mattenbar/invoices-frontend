@@ -1,5 +1,6 @@
 import React from 'react';
 import InvoicesContainer from './containers/InvoicesContainer'
+import CustomersContainer from './containers/CustomersContainer';
 
 class App extends React.Component{
   
@@ -9,6 +10,7 @@ class App extends React.Component{
     return (
       <div className="App">
         <InvoicesContainer />
+        <CustomersContainer />
       </div>
     );
   }

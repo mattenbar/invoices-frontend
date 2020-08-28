@@ -5,7 +5,7 @@ class Invoice extends Component {
     console.log(this.props)
     
     return (
-      <ul key={this.props.attributes.id}>
+      <ul >
         <li>Customer ID: {this.props.attributes.customer_id}</li>
         <li>Description: {this.props.attributes.description}</li> 
         <li>Issue Date: {this.props.attributes.issue_date}</li>

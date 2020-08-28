@@ -9,7 +9,9 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
+        Invoices:
         <InvoicesContainer />
+        Customers:
         <CustomersContainer />
       </div>
     );

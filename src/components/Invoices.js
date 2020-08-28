@@ -11,10 +11,14 @@ class Invoices extends Component {
   }
   
   render(){
-    console.log(this.props.invoices.invoices)
     return (
        <div>
-        {this.props.invoices.map(invoice => <Invoice key={invoice.attributes.id} attributes={invoice.attributes}/>)}
+        {this.props.invoices.map(invoice => <Invoice key={invoice.attributes.id} invoices={invoice.attributes} 
+        customers={
+          this.props.customers
+        }
+
+          />)}
        </div>
       
     )
@@ -23,7 +27,8 @@ class Invoices extends Component {
 
 function mSTP(state){
   return {
-    invoices: state.invoices
+    invoices: state.invoices,
+    customers: state.customers
   }
 }
 

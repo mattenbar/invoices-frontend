@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 
 class Customer extends Component {
   render(){
-    console.log(this.props)
     
     return (
       <ul key={this.props.attributes.id}>

@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import Invoice from './Invoice'
-import {addInvoices} from '../actions/addInvoice'
+import {fetchInvoices} from '../actions/fetchInvoices'
 import { connect } from 'react-redux'
 
 
 class Invoices extends Component {
 
   componentDidMount(){
-    this.props.dispatchAddInvoices()
+    this.props.dispatchFetchInvoices()
   }
   
   render(){
@@ -34,7 +34,7 @@ function mSTP(state){
 
 function mDTP(dispatch){
   return {
-    dispatchAddInvoices: (invoices) => dispatch(addInvoices(invoices)),
+    dispatchFetchInvoices: (invoices) => dispatch(fetchInvoices(invoices)),
   }
 }
 

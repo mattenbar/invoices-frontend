@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import Customer from './Customer'
-import {addCustomers} from '../actions/addCustomers'
+import {fetchCustomers} from '../actions/fetchCustomers'
 import { connect } from 'react-redux'
 
 
 class Customers extends Component {
 
   componentDidMount(){
-    this.props.dispatchAddCustomers()
+    this.props.dispatchFetchCustomers()
   }
   
   render(){
@@ -28,7 +28,7 @@ function mSTP(state){
 
 function mDTP(dispatch){
   return {
-    dispatchAddCustomers: (customers) => dispatch(addCustomers(customers)),
+    dispatchFetchCustomers: (customers) => dispatch(fetchCustomers(customers)),
   }
 }
 

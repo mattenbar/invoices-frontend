@@ -1,13 +1,13 @@
-const ADD_INVOICES = "ADD_INVOICES"
+const FETCH_INVOICES = "FETCH_INVOICES"
 
-export function addInvoices(data){
+export function fetchInvoices(data){
 
   return function(dispatch){
     
     fetch("http://localhost:3000/api/v1/invoices")
       .then(res => res.json())
       .then(invoicesObj => {
-        dispatch({type: ADD_INVOICES, payload: invoicesObj})
+        dispatch({type: FETCH_INVOICES, payload: invoicesObj})
       })
     }
 

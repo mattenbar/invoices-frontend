@@ -1,6 +1,6 @@
-export const deleteInvoice = (invoice_id) => {
+export const deleteInvoice = (invoiceId) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/api/v1/invoices/${invoice_id}`, {
+    return fetch(`http://localhost:3000/api/v1/invoices/${invoiceId}`, {
       method: 'DELETE'
     })
     .then(response => response.json())

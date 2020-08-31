@@ -11,9 +11,9 @@ class App extends React.Component{
     return (
       <div className="App">
         <ul>
-          <h1>Invoices</h1>
+          <h1>Invoices:</h1>
           <InvoicesContainer />
-          <h1>Customers</h1>
+          <h1>Customers:</h1>
           <CustomersContainer />
         </ul>
       </div>

@@ -6,8 +6,13 @@ export default function manageInvoices(state = [], action) {
       console.log("WE MADE IT INTO THE INVOICE REDUCER, YAY!", action.type, action.payload)
       return state.concat(action.payload.invoice.data)
 
-    case 'DELETE_INVOICE':
+    case 'ADD_INVOICE':
       return state.concat(action.payload.invoice.data)
+
+    case 'DELETE_INVOICE':
+      return state= action.payload.invoice.data
+      
+      
     
     default:
       return state;

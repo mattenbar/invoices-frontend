@@ -7,6 +7,10 @@ export default function manageCustomers(state = [],
       console.log("WE MADE IT INTO CUSTOMERS REDUCER, YAY!", action.type, action.payload)
       return state.concat(action.payload.customer.data)
 
+    case 'ADD_CUSTOMER':
+      return state.concat(action.payload.customer.data)
+  
+    
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Invoice from './Invoice'
 import {fetchInvoices} from '../actions/fetchInvoices'
+import {fetchCustomers} from '../actions/fetchCustomers'
 import { connect } from 'react-redux'
 
 
@@ -8,6 +9,7 @@ class Invoices extends Component {
 
   componentDidMount(){
     this.props.dispatchFetchInvoices()
+    this.props.dispatchFetchCustomers()
   }
 
   
@@ -35,6 +37,7 @@ function mSTP(state){
 function mDTP(dispatch){
   return {
     dispatchFetchInvoices: (invoices) => dispatch(fetchInvoices(invoices)),
+    dispatchFetchCustomers: (customers) => dispatch(fetchCustomers(customers)),
   }
 }
 

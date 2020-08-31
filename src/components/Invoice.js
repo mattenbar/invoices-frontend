@@ -18,8 +18,8 @@ class Invoice extends Component {
         <ul >
           <li>Customer: {c.attributes.name}</li>
           <li>Description: {this.props.invoice.description}</li> 
-          <li>Issue Date: {moment(this.props.invoice.issue_date).format("MMMM Do YYYY")}</li>
-          <li>Due Date: {moment(this.props.invoice.due_date).format("MMMM Do YYYY")}</li>
+          <li>Issue Date: {moment(this.props.invoice.issue_date).format("MMMM Do, YYYY")}</li>
+          <li>Due Date: {moment(this.props.invoice.due_date).format("MMMM Do, YYYY")}</li>
           <li>Item Amount/ Hours: {this.props.invoice.amount} </li>
           <li>Price/ Rate: ${this.props.invoice.price}</li>
           <li>Total: ${this.props.invoice.total}</li>

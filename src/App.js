@@ -2,6 +2,7 @@ import React from 'react';
 import InvoicesContainer from './containers/InvoicesContainer'
 import CustomersContainer from './containers/CustomersContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Switch } from 'react-router-dom'
 
 class App extends React.Component{
   
@@ -10,12 +11,11 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <ul>
-          <h1>Invoices:</h1>
-          <InvoicesContainer />
-          <h1>Customers:</h1>
-          <CustomersContainer />
-        </ul>
+        <h1>INVOICE TRACKER</h1>
+        <Switch>
+        <Route exact path="/invoices" render={() =><InvoicesContainer />}/>
+        <Route exact path="/customers" render={() =><CustomersContainer />}/>
+        </Switch>
       </div>
     );
   }

@@ -8,7 +8,6 @@ class InvoicesContainer extends React.Component {
   render() {
     return (
       <div>
-        <InputInvoice />
         <Invoices />
       </div>
     )

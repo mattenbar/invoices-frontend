@@ -13,9 +13,9 @@ class Customers extends Component {
   render(){
     return (
        <div>
-        {this.props.customers.map(customer => <Customer key={customer.attributes.id} attributes={customer.attributes}/>)}
+          <h1>Customers:</h1><br/>
+          {this.props.customers.map(customer => <Customer key={customer.attributes.id} attributes={customer.attributes}/>)}
        </div>
-      
     )
   }
 }

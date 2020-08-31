@@ -36,7 +36,7 @@ class InvoiceInput extends React.Component {
   }
 
   render() {
-    console.log(this.props.customers)
+    
       let c = this.props.customers.map(customer => <option key={customer.attributes.id} value={customer.attributes.id} name="customer_id" onChange={this.handleChange}> {customer.attributes.id} - {customer.attributes.name}</option>)
       if (c){
       return (

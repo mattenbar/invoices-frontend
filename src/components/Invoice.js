@@ -1,6 +1,12 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {deleteInvoice} from '../actions/deleteInvoice'
 
 class Invoice extends Component {
+
+  handleDelete = (invoice_id) => {
+    this.props.deleteInvoice(invoice_id)
+  }
 
   
   render(){
@@ -15,7 +21,8 @@ class Invoice extends Component {
           <li>Item Amount/ Hours: {this.props.invoice.amount} </li>
           <li>Price/ Rate: ${this.props.invoice.price}</li>
           <li>Total: ${this.props.invoice.total}</li>
-          <br></br>
+          <button onClick={() => this.handleDelete(this.props.invoice.id)}>Delete</button>
+          <br/><br/>
         </ul>
       )
     } else {
@@ -24,4 +31,4 @@ class Invoice extends Component {
   }
 }
 
-export default Invoice
+export default connect(null, {deleteInvoice}) (Invoice)

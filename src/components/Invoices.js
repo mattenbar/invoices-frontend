@@ -9,6 +9,7 @@ class Invoices extends Component {
   componentDidMount(){
     this.props.dispatchFetchInvoices()
   }
+
   
   render(){
     return (
@@ -17,8 +18,7 @@ class Invoices extends Component {
         customers={
           this.props.customers
         }
-
-          />)}
+        />)}
        </div>
       
     )

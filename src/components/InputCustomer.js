@@ -28,9 +28,8 @@ class CustomerInput extends React.Component {
   render() {
     return (
       <div>
-        Create New Customer:
-        <br></br>
-        <br></br>
+        <h3>Create New Customer:</h3>
+        <br/>
         <form onSubmit={this.handleSubmit}>
           <label>Customer Name: </label>
           <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange}/><br/>

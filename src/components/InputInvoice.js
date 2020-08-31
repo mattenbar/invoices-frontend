@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addInvoice} from '../actions/addInvoice'
 
+
 class InvoiceInput extends React.Component {
 
   state = {

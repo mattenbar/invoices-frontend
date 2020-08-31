@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addCustomer} from '../actions/addCustomer'
 
+
 class CustomerInput extends React.Component {
 
   state = {
@@ -28,10 +29,12 @@ class CustomerInput extends React.Component {
     return (
       <div>
         Create New Customer:
+        <br></br>
+        <br></br>
         <form onSubmit={this.handleSubmit}>
           <label>Customer Name: </label>
           <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange}/><br/>
-          <label>Customer Email: </label>
+          <label>Customer Email:    </label>
           <input type='email' placeholder='Email' value={this.state.email} name="email" onChange={this.handleChange}/><br/>
           <input type="submit"/>
         </form>

@@ -8,8 +8,9 @@ class CustomersContainer extends React.Component {
   render() {
     return (
       <div>
-        <InputCustomer />
         <Customers />
+        <br></br>
+        <InputCustomer />
       </div>
     )
   }

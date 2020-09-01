@@ -12,9 +12,13 @@ class Invoice extends Component {
   }
 
   handleMarkAsPaid = (invoice) => {
-    
-    let newInvoice = {...invoice, paid: true}
-    this.props.dispatchMarkAsPaid(newInvoice)
+    if (!invoice.paid){
+      let newInvoice = {...invoice, paid: true}
+      this.props.dispatchMarkAsPaid(newInvoice)}
+    else{
+      let newInvoice = {...invoice, paid: false}
+      this.props.dispatchMarkAsPaid(newInvoice)
+    }
   }
 
   
@@ -33,7 +37,7 @@ class Invoice extends Component {
           <b>Total:</b> ${this.props.invoice.total}<br/>
           <b>Paid:</b> {this.props.invoice.paid.toString()}<br/>
           <br/>
-          <Button onClick={() => this.handleMarkAsPaid(this.props.invoice)}>Mark As Paid</Button><br/><br/>
+          <Button onClick={() => this.handleMarkAsPaid(this.props.invoice)}>Mark As {this.props.invoice.paid === true ? "Paid" : "Unpaid"}</Button><br/><br/>
           <Button onClick={() => this.handleDelete(this.props.invoice.id)}>Delete</Button>
           
           <br/><br/><br/>

@@ -1,13 +1,20 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {deleteInvoice} from '../actions/deleteInvoice'
+import {markAsPaid} from '../actions/markAsPaid'
 import moment from 'moment';
 import Button from 'react-bootstrap/Button'
 
 class Invoice extends Component {
 
   handleDelete = (invoice_id) => {
-    this.props.deleteInvoice(invoice_id)
+    this.props.dispatchDeleteInvoice(invoice_id)
+  }
+
+  handleMarkAsPaid = (invoice) => {
+    
+    let newInvoice = {...invoice, paid: true}
+    this.props.dispatchMarkAsPaid(newInvoice)
   }
 
   
@@ -26,7 +33,9 @@ class Invoice extends Component {
           <b>Total:</b> ${this.props.invoice.total}<br/>
           <b>Paid:</b> {this.props.invoice.paid.toString()}<br/>
           <br/>
+          <Button onClick={() => this.handleMarkAsPaid(this.props.invoice)}>Mark As Paid</Button><br/><br/>
           <Button onClick={() => this.handleDelete(this.props.invoice.id)}>Delete</Button>
+          
           <br/><br/><br/>
         </ul>
       )
@@ -36,4 +45,11 @@ class Invoice extends Component {
   }
 }
 
-export default connect(null, {deleteInvoice}) (Invoice)
+function mDTP(dispatch){
+  return {
+    dispatchMarkAsPaid: (invoice) => dispatch(markAsPaid(invoice)),
+    dispatchDeleteInvoice: (invoice_id) => dispatch(deleteInvoice(invoice_id)),
+  }
+}
+
+export default connect(null, mDTP) (Invoice)

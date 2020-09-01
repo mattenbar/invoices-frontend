@@ -6,10 +6,24 @@ import Col from 'react-bootstrap/Col'
 
 class Home extends Component {
   render(){
-    let a = this.props.invoices.map(invoice => invoice.attributes.total)
+    let earned = this.props.invoices.map(invoice => {
+      if(invoice.attributes.paid){
+        return invoice.attributes.total}
+      else{
+        return 0
+      }
+      })
+
+      let owed = this.props.invoices.map(invoice => {
+        if(!invoice.attributes.paid){
+          return invoice.attributes.total}
+        else{
+          return 0
+        }
+        })
     function reducer (total = 0, num) {return total + num; }
-    console.log("we are testing a on home page", a)
-    if(a.length > 0){
+    console.log("we are testing a on home page", earned)
+    if(earned.length > 0){
     return (
       <div
         style={{
@@ -29,7 +43,9 @@ class Home extends Component {
           <Row>
             <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
               <div>
-                <b>Total Earnings:</b>  ${a.reduce(reducer)}
+                <b>Total Earnings:</b>  ${earned.reduce(reducer)}
+                <br/>
+                <b>Incoming Payments:</b>  ${owed.reduce(reducer)}
               </div>
             </Col>
             <Col></Col>

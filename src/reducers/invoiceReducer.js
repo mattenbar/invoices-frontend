@@ -10,7 +10,10 @@ export default function manageInvoices(state = [], action) {
       return state.concat(action.payload.invoice.data)
 
     case 'DELETE_INVOICE':
-      return state= action.payload.invoice.data
+      return state = action.payload.invoice.data
+
+    case 'MARK_AS_PAID':
+      return state = action.payload.invoice.data
       
       
     

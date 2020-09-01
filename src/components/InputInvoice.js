@@ -45,10 +45,10 @@ class InvoiceInput extends React.Component {
       <div>
         <h5>Create New Invoice:</h5>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="customer_id">
+          <Form.Group controlId="customer_selector">
             <Form.Label>Choose Customer:</Form.Label>
             <Form.Control as="select" value={this.state.customer_id} name="customer_id" onChange={this.handleChange}>
-              <option Disabled>Choose Customer...</option>
+              <option>Choose Customer...</option>
               {c}
             </Form.Control>
           </Form.Group>

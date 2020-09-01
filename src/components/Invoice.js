@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {deleteInvoice} from '../actions/deleteInvoice'
 import moment from 'moment';
+import Button from 'react-bootstrap/Button'
 
 class Invoice extends Component {
 
@@ -16,15 +17,16 @@ class Invoice extends Component {
     
       return (
         <ul >
-          <li>Customer: {c.attributes.name}</li>
-          <li>Description: {this.props.invoice.description}</li> 
-          <li>Issue Date: {moment(this.props.invoice.issue_date).format("MMMM Do, YYYY")}</li>
-          <li>Due Date: {moment(this.props.invoice.due_date).format("MMMM Do, YYYY")}</li>
-          <li>Item Amount/ Hours: {this.props.invoice.amount} </li>
-          <li>Price/ Rate: ${this.props.invoice.price}</li>
-          <li>Total: ${this.props.invoice.total}</li>
-          <button onClick={() => this.handleDelete(this.props.invoice.id)}>Delete</button>
-          <br/><br/>
+          <b>Customer:</b> {c.attributes.name}<br/>
+          <b>Description:</b> {this.props.invoice.description} <br/>
+          <b>Issue Date:</b> {moment(this.props.invoice.issue_date).format("MMMM Do, YYYY")}<br/>
+          <b>Due Date:</b> {moment(this.props.invoice.due_date).format("MMMM Do, YYYY")}<br/>
+          <b>Item Amount/ Hours:</b> {this.props.invoice.amount} <br/>
+          <b>Price/ Rate:</b> ${this.props.invoice.price}<br/>
+          <b>Total:</b> ${this.props.invoice.total}<br/>
+          <br/>
+          <Button onClick={() => this.handleDelete(this.props.invoice.id)}>Delete</Button>
+          <br/><br/><br/>
         </ul>
       )
     } else {

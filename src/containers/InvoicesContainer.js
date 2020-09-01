@@ -11,7 +11,7 @@ class InvoicesContainer extends React.Component {
   render() {
     return (
       <div>
-        <h1>Invoices:</h1>
+        <h1>Invoices:</h1><br/>
         <ul>
           <Button
             onClick={() =>

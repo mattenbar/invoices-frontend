@@ -6,7 +6,7 @@ class Home extends Component {
     
     return (
       <div>
-        <h2>Welcome to Invoice Tracker</h2>
+        <h2 >Welcome to Invoice Tracker</h2>
       </div>
     )
   }

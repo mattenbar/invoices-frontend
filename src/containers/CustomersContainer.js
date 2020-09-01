@@ -9,7 +9,7 @@ class CustomersContainer extends React.Component {
     return (
       <div>
         <h1>Customers:</h1><br/>
-        <InputCustomer />
+        <ul><InputCustomer /></ul>
         <br></br>
         <Customers customers={this.props.customers}/>
       </div>

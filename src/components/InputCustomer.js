@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addCustomer} from '../actions/addCustomer'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 
 class CustomerInput extends React.Component {
@@ -27,19 +29,24 @@ class CustomerInput extends React.Component {
 
   render() {
     return (
-      <div>
-        <h4>Create New Customer:</h4>
-        <form onSubmit={this.handleSubmit}>
-          <label>Customer Name: </label>
-          <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange}/><br/>
-          <label>Customer Email:    </label>
-          <input type='email' placeholder='Email' value={this.state.email} name="email" onChange={this.handleChange}/><br/>
-          <input type="submit"/>
-        </form>
-      </div>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group controlId="name">
+        <Form.Label>Customer Name:</Form.Label>
+        <Form.Control type="text" placeholder="Enter customer name" value={this.state.name} name="name" onChange={this.handleChange}/>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicEmail">
+        <Form.Label>Customer Email</Form.Label>
+        <Form.Control type="email" placeholder="Enter customer email" value={this.state.email} name="email" onChange={this.handleChange}/>
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     )
   }
 }
+
 
 
 export default connect(null, {addCustomer})(CustomerInput)

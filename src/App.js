@@ -21,7 +21,7 @@ class App extends React.Component{
       <div className="App">
         <NavBar />
         <Switch>
-        <Route exact path ="/" render={()=> <Home />}/>
+        <Route exact path ="/" render={()=> <Home invoices={this.props.invoices} customers={this.props.customers}/>}/>
         <Route exact path="/invoices" render={() =><InvoicesContainer invoices={this.props.invoices} customers={this.props.customers}/>}/>
         <Route exact path="/customers" render={() =><CustomersContainer customers={this.props.customers}/>}/>
         </Switch>

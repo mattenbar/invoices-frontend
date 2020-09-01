@@ -14,7 +14,7 @@ class Invoices extends Component {
           <Invoice key={invoice.attributes.id} invoice={invoice.attributes} 
             customers={
               this.props.customers
-            }/>)}
+            }/>).reverse()}
        </div>
       
     )

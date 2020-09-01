@@ -48,6 +48,7 @@ class Invoice extends Component {
       if (c){
       return (
         <ul >
+          <br></br>
           <b>Invoice Number</b> {invoice.id}<br/>
           <b>Customer:</b> {c.attributes.name}<br/>
           <b>Description:</b> {invoice.description} <br/>

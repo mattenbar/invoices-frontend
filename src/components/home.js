@@ -43,9 +43,9 @@ class Home extends Component {
           <Row>
             <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
               <div>
-                <b>Total Earnings:</b>  ${earned.reduce(reducer)}
+                <b>Total Earnings:</b>  ${earned.reduce(reducer).toFixed(2)}
                 <br/>
-                <b>Incoming Payments:</b>  ${owed.reduce(reducer)}
+                <b>Incoming Payments:</b>  ${owed.reduce(reducer).toFixed(2)}
               </div>
             </Col>
             <Col></Col>

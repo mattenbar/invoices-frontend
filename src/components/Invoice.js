@@ -23,26 +23,35 @@ class Invoice extends Component {
 
   
   render(){
-    let c = this.props.customers.find(customer => parseInt(customer.id) === this.props.invoice.customer_id)
-    if (c){
+    let invoiceID = parseInt(this.props.match.params.id)
+    let invoice
+    let c
+    if (invoiceID){
+      invoice = this.props.invoices.find(invoice => parseInt(invoice.id) === parseInt(invoiceID))
+    }
     
+    
+    if (invoice && this.props.customers.length > 0){
+      c = this.props.customers.find(customer => parseInt(customer.id) === parseInt(invoice.attributes.customer_id))
+      if (c){
       return (
         <ul >
+          <b>Invoice Number</b> {invoice.attributes.id}<br/>
           <b>Customer:</b> {c.attributes.name}<br/>
-          <b>Description:</b> {this.props.invoice.description} <br/>
-          <b>Issue Date:</b> {moment(this.props.invoice.issue_date).format("MMMM Do, YYYY")}<br/>
-          <b>Due Date:</b> {moment(this.props.invoice.due_date).format("MMMM Do, YYYY")}<br/>
-          <b>Item Amount/ Hours:</b> {this.props.invoice.amount} <br/>
-          <b>Price/ Rate:</b> ${this.props.invoice.price}<br/>
-          <b>Total:</b> ${this.props.invoice.total}<br/>
-          <b>Paid:</b> {this.props.invoice.paid.toString()}<br/>
+          <b>Description:</b> {invoice.attributes.description} <br/>
+          <b>Issue Date:</b> {moment(invoice.attributes.issue_date).format("MMMM Do, YYYY")}<br/>
+          <b>Due Date:</b> {moment(invoice.attributes.due_date).format("MMMM Do, YYYY")}<br/>
+          <b>Item Amount/ Hours:</b> {invoice.attributes.amount} <br/>
+          <b>Price/ Rate:</b> ${invoice.attributes.price}<br/>
+          <b>Total:</b> ${invoice.attributes.total}<br/>
+          <b>Paid:</b> {invoice.attributes.paid.toString()}<br/>
           <br/>
-          <Button onClick={() => this.handleMarkAsPaid(this.props.invoice)}>Mark As {this.props.invoice.paid === true ? "Paid" : "Unpaid"}</Button><br/><br/>
+          <Button onClick={() => this.handleMarkAsPaid(this.props.invoice)}>Mark As {invoice.attributes.paid === true ? "Unpaid" : "Paid"}</Button><br/><br/>
           <Button onClick={() => this.handleDelete(this.props.invoice.id)}>Delete</Button>
           
           <br/><br/><br/>
         </ul>
-      )
+      )}
     } else {
       return <div></div>
     }

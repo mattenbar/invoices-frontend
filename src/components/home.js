@@ -52,7 +52,7 @@ class Home extends Component {
             <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
               <div>
                 <b>Total Customers:</b> {this.props.customers.length}<br/>
-                <b>Total of Invoices:</b> {this.props.invoices.length}
+                <b>Total Number of Invoices:</b> {this.props.invoices.length}
               </div>
             </Col>
           </Row>
@@ -88,7 +88,7 @@ class Home extends Component {
             <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
               <div>
                 <b>Total Customers:</b> {this.props.customers.length}<br/>
-                <b>Total of Invoices:</b> {this.props.invoices.length}
+                <b>Total Number of Invoices:</b> {this.props.invoices.length}
               </div>
             </Col>
           </Row>

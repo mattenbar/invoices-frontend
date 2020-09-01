@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Customer from './Customer'
+import {Link} from "react-router-dom"
 
 
 
@@ -9,7 +9,12 @@ class Customers extends Component {
   render(){
     return (
        <div>
-        {this.props.customers.map(customer => <Customer key={customer.attributes.id} attributes={customer.attributes}/>)}
+        <ul>
+        {this.props.customers.map(customer => 
+          <Link key={customer.id} to={`/customers/${customer.id}`}>{customer.attributes.name}<br/> </Link>
+        )
+        }
+        </ul>
        </div>
       
     )

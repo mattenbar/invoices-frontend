@@ -8,6 +8,8 @@ import {fetchInvoices} from './actions/fetchInvoices'
 import {fetchCustomers} from './actions/fetchCustomers'
 import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
+import Customer from './components/Customer'
+import Invoice from './components/Invoice'
 
 class App extends React.Component{
 
@@ -24,6 +26,8 @@ class App extends React.Component{
         <Route exact path ="/" render={()=> <Home invoices={this.props.invoices} customers={this.props.customers}/>}/>
         <Route exact path="/invoices" render={() =><InvoicesContainer invoices={this.props.invoices} customers={this.props.customers}/>}/>
         <Route exact path="/customers" render={() =><CustomersContainer customers={this.props.customers}/>}/>
+        <Route exact path="/customers/:id" render={(routerProps) => <Customer {...routerProps} customers={this.props.customers} invoices={this.props.invoices}/>}/>
+        <Route exact path="/invoices/:id" render={(routerProps) => <Invoice {...routerProps} customers={this.props.customers} invoices={this.props.invoices}/>}/>
         </Switch>
       </div>
     );

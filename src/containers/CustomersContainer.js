@@ -1,25 +1,21 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import Customers from '../components/Customers'
 import InputCustomer from '../components/InputCustomer'
 
 class CustomersContainer extends React.Component {
 
   render() {
+
     return (
       <div>
-        <Customers />
-        <br></br>
+        <h1>Customers:</h1><br/>
         <InputCustomer />
+        <br></br>
+        <Customers customers={this.props.customers}/>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    customers: state.customers
-  }
-}
 
-export default connect(mapStateToProps)(CustomersContainer)
+export default CustomersContainer

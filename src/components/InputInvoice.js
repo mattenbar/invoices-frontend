@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addInvoice} from '../actions/addInvoice'
+
 import Form from 'react-bootstrap/Form'
 
 
@@ -16,6 +17,7 @@ class InvoiceInput extends React.Component {
     total: 0.00,
     customer_id: 0
   }
+  
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value

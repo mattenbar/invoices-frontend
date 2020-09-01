@@ -24,6 +24,7 @@ class Invoice extends Component {
           <b>Item Amount/ Hours:</b> {this.props.invoice.amount} <br/>
           <b>Price/ Rate:</b> ${this.props.invoice.price}<br/>
           <b>Total:</b> ${this.props.invoice.total}<br/>
+          <b>Paid:</b> {this.props.invoice.paid.toString()}<br/>
           <br/>
           <Button onClick={() => this.handleDelete(this.props.invoice.id)}>Delete</Button>
           <br/><br/><br/>

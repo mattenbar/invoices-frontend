@@ -46,7 +46,40 @@ class Home extends Component {
     )}
     else{
       return(
-        <div></div>
+        <div>
+          <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <br/><br/><br/>
+        <Container>
+          <Row>
+            <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <h2 >Invoice Tracker</h2>
+            </Col>
+          </Row>
+          <br/>
+          <Row>
+            <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+              <div>
+                <b>Total Earnings:</b>  $0.00
+              </div>
+            </Col>
+            <Col></Col>
+            <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+              <div>
+                <b>Total Customers:</b> {this.props.customers.length}<br/>
+                <b>Total of Invoices:</b> {this.props.invoices.length}
+              </div>
+            </Col>
+          </Row>
+        </Container>
+
+      </div>
+        </div>
       )
     }
   }

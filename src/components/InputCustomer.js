@@ -29,20 +29,23 @@ class CustomerInput extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group controlId="name">
-        <Form.Label>Customer Name:</Form.Label>
-        <Form.Control type="text" placeholder="Enter customer name" value={this.state.name} name="name" onChange={this.handleChange}/>
-        </Form.Group>
+      <div>
+        <h4>Create New Customer:</h4>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group controlId="name">
+          <Form.Label>Customer Name:</Form.Label>
+          <Form.Control type="text" placeholder="Enter customer name" value={this.state.name} name="name" onChange={this.handleChange}/>
+          </Form.Group>
 
-        <Form.Group controlId="formBasicEmail">
-        <Form.Label>Customer Email</Form.Label>
-        <Form.Control type="email" placeholder="Enter customer email" value={this.state.email} name="email" onChange={this.handleChange}/>
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+          <Form.Group controlId="formBasicEmail">
+          <Form.Label>Customer Email</Form.Label>
+          <Form.Control type="email" placeholder="Enter customer email" value={this.state.email} name="email" onChange={this.handleChange}/>
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
     )
   }
 }

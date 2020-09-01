@@ -45,36 +45,44 @@ class InvoiceInput extends React.Component {
       <div>
         <h5>Create New Invoice:</h5>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="customer">
+          <Form.Group controlId="customer_id">
             <Form.Label>Choose Customer:</Form.Label>
             <Form.Control as="select" value={this.state.customer_id} name="customer_id" onChange={this.handleChange}>
+              <option Disabled>Choose Customer...</option>
               {c}
             </Form.Control>
           </Form.Group>
+
           <Form.Group controlId="description">
             <Form.Label>Description: </Form.Label>
             <Form.Control type='text' placeholder='Description' value={this.state.description} name="description" onChange={this.handleChange}/>
           </Form.Group>
+
           <Form.Group controlId="issue_date">
             <Form.Label>Issue Date: </Form.Label>
             <Form.Control type='date'  value={this.state.issue_date} name="issue_date" onChange={this.handleChange}/>
           </Form.Group>
+
           <Form.Group controlId="issue_date">
           <Form.Label>Due Date: </Form.Label>
           <Form.Control type='date' value={this.state.due_date} name="due_date" onChange={this.handleChange}/>
           </Form.Group>
+
           <Form.Group controlId="amount">
           <Form.Label>Item Amount / Hours: </Form.Label>
           <Form.Control type="integer" value={this.state.amount} name="amount" onChange={this.handleChange}/>
           </Form.Group>
+
           <Form.Group controlId="price">
           <Form.Label>Item Price / Rate: </Form.Label>
           <Form.Control type="float" value={this.state.price} name="price" onChange={this.handleChange}/>
           </Form.Group>
-          <Form.Group controlId="price">
+
+          <Form.Group controlId="total">
           <Form.Label>Total: </Form.Label>
-          <Form.Control type="float" value={this.state.price * this.state.amount} name="total" onChange={this.handleChange}/>
+          <Form.Control type="float" value={this.state.price * this.state.amount} name="total" onChange={this.handleChange} readOnly/>
           </Form.Group>
+
           <Button variant="primary" type="submit">
             Submit
          </Button>

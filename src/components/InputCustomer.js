@@ -37,7 +37,7 @@ class CustomerInput extends React.Component {
           <Form.Control type="text" placeholder="Enter customer name" value={this.state.name} name="name" onChange={this.handleChange}/>
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group controlId="email">
           <Form.Label>Customer Email</Form.Label>
           <Form.Control type="email" placeholder="Enter customer email" value={this.state.email} name="email" onChange={this.handleChange}/>
           </Form.Group>

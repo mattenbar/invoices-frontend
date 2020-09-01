@@ -23,31 +23,43 @@ class Invoice extends Component {
 
   
   render(){
-    let invoiceID = parseInt(this.props.match.params.id)
+    let invoiceID
+    if(this.props.match){
+    invoiceID = parseInt(this.props.match.params.id)
+    }else{
+      invoiceID = this.props.invoice.id
+    }
     let invoice
     let c
     if (invoiceID){
-      invoice = this.props.invoices.find(invoice => parseInt(invoice.id) === parseInt(invoiceID))
+      if(this.props.invoices && this.props.invoices.length > 0){
+        invoice = this.props.invoices.find(invoice => parseInt(invoice.id) === parseInt(invoiceID))
+        if(invoice.attributes){
+          invoice = invoice.attributes
+        }
+      }else{
+        invoice = this.props.invoice
+      } 
     }
     
     
     if (invoice && this.props.customers.length > 0){
-      c = this.props.customers.find(customer => parseInt(customer.id) === parseInt(invoice.attributes.customer_id))
+      c = this.props.customers.find(customer => parseInt(customer.id) === parseInt(invoice.customer_id))
       if (c){
       return (
         <ul >
-          <b>Invoice Number</b> {invoice.attributes.id}<br/>
+          <b>Invoice Number</b> {invoice.id}<br/>
           <b>Customer:</b> {c.attributes.name}<br/>
-          <b>Description:</b> {invoice.attributes.description} <br/>
-          <b>Issue Date:</b> {moment(invoice.attributes.issue_date).format("MMMM Do, YYYY")}<br/>
-          <b>Due Date:</b> {moment(invoice.attributes.due_date).format("MMMM Do, YYYY")}<br/>
-          <b>Item Amount/ Hours:</b> {invoice.attributes.amount} <br/>
-          <b>Price/ Rate:</b> ${invoice.attributes.price}<br/>
-          <b>Total:</b> ${invoice.attributes.total}<br/>
-          <b>Paid:</b> {invoice.attributes.paid.toString()}<br/>
+          <b>Description:</b> {invoice.description} <br/>
+          <b>Issue Date:</b> {moment(invoice.issue_date).format("MMMM Do, YYYY")}<br/>
+          <b>Due Date:</b> {moment(invoice.due_date).format("MMMM Do, YYYY")}<br/>
+          <b>Item Amount/ Hours:</b> {invoice.amount} <br/>
+          <b>Price/ Rate:</b> ${invoice.price}<br/>
+          <b>Total:</b> ${invoice.total}<br/>
+          <b>Paid:</b> {invoice.paid.toString()}<br/>
           <br/>
-          <Button onClick={() => this.handleMarkAsPaid(this.props.invoice)}>Mark As {invoice.attributes.paid === true ? "Unpaid" : "Paid"}</Button><br/><br/>
-          <Button onClick={() => this.handleDelete(this.props.invoice.id)}>Delete</Button>
+          <Button onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button><br/><br/>
+          <Button onClick={() => this.handleDelete(invoice.id)}>Delete</Button>
           
           <br/><br/><br/>
         </ul>

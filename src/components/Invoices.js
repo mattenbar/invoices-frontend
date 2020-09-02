@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Invoice from './Invoice'
 import {Link} from "react-router-dom"
 
 

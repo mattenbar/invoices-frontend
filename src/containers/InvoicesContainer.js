@@ -11,8 +11,8 @@ class InvoicesContainer extends React.Component {
   render() {
     return (
       <div>
-        <h1>Invoices:</h1><br/>
         <ul>
+          <h1>Invoices:</h1><br/>
           <Button
             onClick={() =>
               this.setState((prevState) => ({

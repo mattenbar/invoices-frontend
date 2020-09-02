@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {addCustomer} from '../actions/addCustomer'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
 
 
 class CustomerInput extends React.Component {
@@ -29,6 +30,7 @@ class CustomerInput extends React.Component {
 
   render() {
     return (
+      <Container>
       <div>
         <h4>Create New Customer:</h4>
         <Form onSubmit={this.handleSubmit}>
@@ -46,6 +48,7 @@ class CustomerInput extends React.Component {
           </Button>
         </Form>
       </div>
+    </Container>
     )
   }
 }

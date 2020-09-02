@@ -5,6 +5,7 @@ class Customer extends Component {
   render(){
     let customerID = parseInt(this.props.match.params.id)
     let c = this.props.customers.find(customer => parseInt(customer.id) === parseInt(customerID))
+    // eslint-disable-next-line
     let customerInvoices = this.props.invoices.map(invoice => {if(invoice.attributes.customer_id === customerID){ return invoice.attributes}})
     let filteredInvoices = customerInvoices.filter(function(x){
       return x !== undefined

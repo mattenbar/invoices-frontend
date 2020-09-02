@@ -4,6 +4,9 @@ import {deleteInvoice} from '../actions/deleteInvoice'
 import {markAsPaid} from '../actions/markAsPaid'
 import moment from 'moment';
 import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 class Invoice extends Component {
 
@@ -47,22 +50,30 @@ class Invoice extends Component {
       c = this.props.customers.find(customer => parseInt(customer.id) === parseInt(invoice.customer_id))
       if (c){
       return (
-        <ul >
+        <ul>
           <br></br>
-          <b>Invoice Number</b> {invoice.id}<br/>
-          <b>Customer:</b> {c.attributes.name}<br/>
-          <b>Description:</b> {invoice.description} <br/>
-          <b>Issue Date:</b> {moment(invoice.issue_date).format("MMMM Do, YYYY")}<br/>
-          <b>Due Date:</b> {moment(invoice.due_date).format("MMMM Do, YYYY")}<br/>
-          <b>Item Amount/ Hours:</b> {invoice.amount} <br/>
-          <b>Price/ Rate:</b> ${invoice.price}<br/>
-          <b>Total:</b> ${invoice.total}<br/>
-          <b>Paid:</b> {invoice.paid.toString()}<br/>
-          <br/>
-          <Button onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button><br/><br/>
-          <Button onClick={() => this.handleDelete(invoice.id)}>Delete</Button>
-          
-          <br/><br/><br/>
+          <h4>Invoice Number: {invoice.id}</h4>
+          <Col>
+            <Row >
+              <Col>
+                <b>Customer:</b> {c.attributes.name}<br/>
+                <b>Description:</b> {invoice.description} <br/>
+                <b>Issue Date:</b> {moment(invoice.issue_date).format("MMMM Do, YYYY")}<br/>
+                <b>Due Date:</b> {moment(invoice.due_date).format("MMMM Do, YYYY")}<br/>
+                <br/>
+                <Button onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button>
+                <b>    </b>
+                <Button onClick={() => this.handleDelete(invoice.id)}>Delete</Button>
+              </Col>
+              <Col>
+                <b>Item Amount/ Hours:</b> {invoice.amount} <br/>
+                <b>Price/ Rate:</b> ${invoice.price}<br/>
+                <b>Total:</b> ${invoice.total}<br/>
+                <b>Paid:</b> {invoice.paid.toString()}<br/><br/>
+                
+              </Col>
+            </Row>
+          </Col>
         </ul>
       )}
     } else {

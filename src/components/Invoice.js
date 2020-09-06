@@ -4,9 +4,10 @@ import {deleteInvoice} from '../actions/deleteInvoice'
 import {markAsPaid} from '../actions/markAsPaid'
 import moment from 'moment';
 import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import{ init } from 'emailjs-com';
+init("user_pbewGaer9GHlj1ur1WGW3");
 
 class Invoice extends Component {
 
@@ -23,6 +24,8 @@ class Invoice extends Component {
       this.props.dispatchMarkAsPaid(newInvoice)
     }
   }
+
+  
 
   
   render(){
@@ -49,6 +52,21 @@ class Invoice extends Component {
     if (invoice && this.props.customers.length > 0){
       c = this.props.customers.find(customer => parseInt(customer.id) === parseInt(invoice.customer_id))
       if (c){
+
+        let templateParams = {
+          name: c.attributes.name,
+          customer_email: c.attributes.email,
+          invoice_number: invoice.id,
+          description: invoice.description,
+          issue_date: moment(invoice.issue_date).format("MMMM Do, YYYY"),
+          due_date: moment(invoice.due_date).format("MMMM Do, YYYY"),
+          amount: invoice.amount,
+          price: invoice.price,
+          total: invoice.total
+        }
+
+        console.log(templateParams);
+
       return (
         <ul>
           <br></br>
@@ -61,6 +79,8 @@ class Invoice extends Component {
                 <b>Issue Date:</b> {moment(invoice.issue_date).format("MMMM Do, YYYY")}<br/>
                 <b>Due Date:</b> {moment(invoice.due_date).format("MMMM Do, YYYY")}<br/>
                 <br/>
+                <Button onClick={() => window.emailjs.send('service_48zb246', 'template_e56p9sc', templateParams)}>Email Invoice</Button>
+                <b>    </b>
                 <Button onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button>
                 <b>    </b>
                 <Button onClick={() => this.handleDelete(invoice.id)}>Delete</Button>

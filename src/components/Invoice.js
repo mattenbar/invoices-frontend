@@ -6,6 +6,8 @@ import moment from 'moment';
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/Container'
 import{ init } from 'emailjs-com';
 init("user_pbewGaer9GHlj1ur1WGW3");
 
@@ -69,26 +71,21 @@ class Invoice extends Component {
         console.log(templateParams);
 
       return (
-        <ul>
+        <ul >
           <br></br>
-          <h4>Invoice Number: {invoice.id}</h4>
-          <Col>
-            <Row >
+          <Container>
+          <Card border="primary" >
+          <Card.Header>Invoice Number: {invoice.id}</Card.Header>
+          <Card.Body>
+          <Col >
+            <Row xs={4} md={3} lg={8}>
               <Col>
                 <b>Customer:</b> {c.attributes.name}<br/>
                 <b>Description:</b> {invoice.description} <br/>
                 <b>Issue Date:</b> {moment(invoice.issue_date).format("MMMM Do, YYYY")}<br/>
                 <b>Due Date:</b> {moment(invoice.due_date).format("MMMM Do, YYYY")}<br/>
                 <br/>
-                <Button onClick={() => window.emailjs.send(
-                  'service_48zb246', 'template_e56p9sc', templateParams)
-                  .then(res => {alert("Email succesfully sent")})
-                  .catch(err => {alert("There was an error sending your email")})
-                  }>Email Invoice</Button>
-                <b>    </b>
-                <Button onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button>
-                <b>    </b>
-                <Button onClick={() => this.handleDelete(invoice.id)}>Delete</Button>
+                
               </Col>
               <Col>
                 <b>Item Amount/ Hours:</b> {invoice.amount} <br/>
@@ -99,6 +96,18 @@ class Invoice extends Component {
               </Col>
             </Row>
           </Col>
+          <Button onClick={() => window.emailjs.send(
+                  'service_48zb246', 'template_e56p9sc', templateParams)
+                  .then(res => {alert("Email succesfully sent")})
+                  .catch(err => {alert("There was an error sending your email")})
+                  }>Email Invoice</Button>
+                <b>    </b>
+                <Button onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button>
+                <b>    </b>
+                <Button onClick={() => this.handleDelete(invoice.id)}>Delete</Button>
+          </Card.Body>
+          </Card>
+          </Container>
         </ul>
       )}
     } else {

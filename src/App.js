@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import NavBar from './components/NavBar'
 import Customer from './components/Customer'
 import Invoice from './components/Invoice'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component{
 

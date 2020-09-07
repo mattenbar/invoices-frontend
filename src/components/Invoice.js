@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { BrowserRouter, Route } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {deleteInvoice} from '../actions/deleteInvoice'
 import {markAsPaid} from '../actions/markAsPaid'
@@ -16,6 +17,17 @@ class Invoice extends Component {
 
   handleDelete = (invoice_id) => {
     this.props.dispatchDeleteInvoice(invoice_id)
+  
+    debugger
+    if(this.props.history !== undefined){
+      if (this.props.history.location.pathname.includes("customers")){
+        this.props.history.replace(`/customers/${this.props.invoice.customer_id}`)
+      }else{
+        this.props.history.replace('/invoices')
+      }
+    }
+
+    
   }
 
   handleMarkAsPaid = (invoice) => {

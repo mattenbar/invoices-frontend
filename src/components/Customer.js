@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Invoice from './Invoice'
 import {Link} from "react-router-dom"
+import { BrowserRouter, Route } from 'react-router-dom';
 
 class Customer extends Component {
   render(){
@@ -23,7 +24,7 @@ class Customer extends Component {
         <div>
           <ul><h5><b>Customer Invoices:</b></h5></ul>
           {filteredInvoices.map(invoice => 
-            <Invoice key={invoice.id} invoice={invoice} 
+            <Invoice key={invoice.id} history={this.props.history}  invoice={invoice} 
             customers={
               this.props.customers
             }/>).reverse()}

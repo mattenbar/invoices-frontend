@@ -9,6 +9,7 @@ class Customers extends Component {
   render(){
 
     function capitalize(string){
+      // eslint-disable-next-line
       let capitalizeWord
       let firstLetter = string[0].toUpperCase()
       let restOfWord = string.slice(1)
@@ -17,10 +18,11 @@ class Customers extends Component {
 
     let customers
     if (this.props.customers.length > 0){
-      
+      // eslint-disable-next-line
       customers = this.props.customers.map(customer => 
         customer.attributes
       )
+      // eslint-disable-next-line
       customers.sort(function(a,b){
           let nameA = capitalize(a.name)
           let nameB = capitalize(b.name)

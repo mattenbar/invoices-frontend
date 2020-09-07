@@ -26,7 +26,7 @@ class Home extends Component {
         return 0
       }
     })
-
+    // eslint-disable-next-line
     let unpaidInvoices = this.props.invoices.map(invoice =>{
         let c
         let customers

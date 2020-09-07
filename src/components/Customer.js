@@ -11,8 +11,7 @@ class Customer extends Component {
       return x !== undefined
     })
     
-    if (c && filteredInvoices){
-  
+    if (c && filteredInvoices.length > 0 ){
     return (
       <div>
       <br/>
@@ -21,7 +20,7 @@ class Customer extends Component {
         <h4><b>Customer Email:</b> {c.attributes.email}</h4>
         </ul>
         <div>
-          <ul><h5><b>Customer Invoices</b></h5></ul>
+          <ul><h5><b>Customer Invoices:</b></h5></ul>
           {filteredInvoices.map(invoice => 
             <Invoice key={invoice.id} invoice={invoice} 
             customers={
@@ -30,7 +29,23 @@ class Customer extends Component {
         </div>
       </div>
     )}
-    else {
+    else if(c && filteredInvoices.length === 0) {
+      return (
+        <div>
+        <br/>
+          <ul>
+          <h4><b>Customer Name:</b> {c.attributes.name}</h4>
+          <h4><b>Customer Email:</b> {c.attributes.email}</h4>
+          </ul>
+          <div>
+            <ul><h5><b>Customer Invoices:</b></h5>
+              <b>Customer has no invoices</b>
+            </ul>
+          </div>
+        </div>
+      )
+    }
+    else{
       return (<div></div>)
     }
   }

@@ -1,3 +1,16 @@
+Invoices is a web app to help keep track on invoices.
+The app allows users to create customers and invoices. 
+The user can mark if invoices are paid or unpaid as well as email invoices to customers. 
+On the home page users will see how much money they have earned, how much they are still owed and which invoices are still unpaid.
+To use the app fork the back end from https://github.com/mattenbar/invoices-backend
+Once you have forked the backend API be sure to run bundle to install dependencies, rails db:seed for initial seed data, and then rails s to start your server
+
+In the front end once forked run npm install then npm start.
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

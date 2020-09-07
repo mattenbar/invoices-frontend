@@ -17,8 +17,6 @@ class Invoice extends Component {
 
   handleDelete = (invoice_id) => {
     this.props.dispatchDeleteInvoice(invoice_id)
-  
-    debugger
     if(this.props.history !== undefined){
       if (this.props.history.location.pathname.includes("customers")){
         this.props.history.replace(`/customers/${this.props.invoice.customer_id}`)
@@ -110,7 +108,7 @@ class Invoice extends Component {
           </Col>
           <Button variant="dark" onClick={() => window.emailjs.send(
                   'service_48zb246', 'template_e56p9sc', templateParams)
-                  .then(res => {alert("Email succesfully sent")})
+                  .then(res => {alert("Email successfully sent")})
                   .catch(err => {alert("There was an error sending your email")})
                   }>Email Invoice</Button>
                 <b>    </b>

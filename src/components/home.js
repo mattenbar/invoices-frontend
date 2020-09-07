@@ -31,17 +31,32 @@ class Home extends Component {
         let c
         let customers
       if(!invoice.attributes.paid){
-         
+
           if(this.props.customers.length > 0){
           customers = this.props.customers.map(customer => customer.attributes)
           c = customers.find(customer => customer.id === invoice.attributes.customer_id)
           return <Link key={invoice.id} to={`/invoices/${invoice.id}`}>Invoice #{invoice.id} - {c.name} - {invoice.attributes.description}<br/></Link> }
     }})
+
+    function checkForUnpaidInvoices(invoicesArray){
+      
+      let filtered = invoicesArray.filter(function (el) {
+        return el != null;
+      });
+      debugger
+      if(filtered.length > 0){
+        return invoicesArray
+      }
+      else{
+        return (<b>All invoices are paid</b>)
+      }
+    }
     
     function reducer (total = 0, num) {return total + num; }
 
 
     console.log("we are testing a on home page", earned)
+    
     if(earned.length > 0){
     return (
       <div
@@ -85,7 +100,7 @@ class Home extends Component {
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
-                <Card.Body>{unpaidInvoices}</Card.Body>
+                <Card.Body>{checkForUnpaidInvoices(unpaidInvoices)}</Card.Body>
                 </Accordion.Collapse>
               </Card>
             </Accordion>

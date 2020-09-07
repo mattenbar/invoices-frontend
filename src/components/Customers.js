@@ -7,17 +7,47 @@ class Customers extends Component {
 
   
   render(){
+
+    function capitalize(string){
+      let capitalizeWord
+      let firstLetter = string[0].toUpperCase()
+      let restOfWord = string.slice(1)
+      return capitalizeWord = firstLetter + restOfWord
+    }
+
+    let customers
+    if (this.props.customers.length > 0){
+      
+      customers = this.props.customers.map(customer => 
+        customer.attributes
+      )
+      customers.sort(function(a,b){
+          let nameA = capitalize(a.name)
+          let nameB = capitalize(b.name)
+          if (nameA < nameB){
+            return -1
+          }
+          if (nameA > nameB){
+            return 1
+          }
+        })
+      }
+      
+    if (this.props.customers.length > 0){
     return (
        <div>
         <ul>
-        {this.props.customers.map(customer => 
-          <Link key={customer.id} to={`/customers/${customer.id}`}>{customer.attributes.name}<br/> </Link>
+        {customers.map(customer => 
+          <Link key={customer.id} to={`/customers/${customer.id}`}>{capitalize(customer.name)}<br/> </Link>
         )
         }
         </ul>
        </div>
       
-    )
+    )}
+    else{
+      return( <div></div>)
+    }
   }
 }
 

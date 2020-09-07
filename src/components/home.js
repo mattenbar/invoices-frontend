@@ -43,7 +43,6 @@ class Home extends Component {
       let filtered = invoicesArray.filter(function (el) {
         return el != null;
       });
-      debugger
       if(filtered.length > 0){
         return invoicesArray
       }

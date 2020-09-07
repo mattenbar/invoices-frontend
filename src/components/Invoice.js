@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row'
 import{ init } from 'emailjs-com';
 init("user_pbewGaer9GHlj1ur1WGW3");
 
+
 class Invoice extends Component {
 
   handleDelete = (invoice_id) => {
@@ -79,7 +80,11 @@ class Invoice extends Component {
                 <b>Issue Date:</b> {moment(invoice.issue_date).format("MMMM Do, YYYY")}<br/>
                 <b>Due Date:</b> {moment(invoice.due_date).format("MMMM Do, YYYY")}<br/>
                 <br/>
-                <Button onClick={() => window.emailjs.send('service_48zb246', 'template_e56p9sc', templateParams)}>Email Invoice</Button>
+                <Button onClick={() => window.emailjs.send(
+                  'service_48zb246', 'template_e56p9sc', templateParams)
+                  .then(res => {alert("Email succesfully sent")})
+                  .catch(err => {alert("There was an error sending your email")})
+                  }>Email Invoice</Button>
                 <b>    </b>
                 <Button onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button>
                 <b>    </b>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Invoice from './Invoice'
+import {Link} from "react-router-dom"
 
 class Customer extends Component {
   render(){
@@ -40,6 +41,8 @@ class Customer extends Component {
           <div>
             <ul><h5><b>Customer Invoices:</b></h5>
               <b>Customer has no invoices</b>
+              <br></br>
+              <Link  to={`/invoices/new`}>Create New Invoice<br/> </Link>
             </ul>
           </div>
         </div>

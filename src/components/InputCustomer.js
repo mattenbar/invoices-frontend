@@ -55,4 +55,5 @@ class CustomerInput extends React.Component {
 
 
 
+
 export default connect(null, {addCustomer})(CustomerInput)

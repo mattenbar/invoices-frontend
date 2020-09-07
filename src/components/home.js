@@ -32,8 +32,8 @@ class Home extends Component {
           alignItems: "center"
         }}
       >
-        <br/><br/><br/>
         <Container>
+        <br></br>
           <Row>
             <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
             <h2 >Invoice Tracker</h2>

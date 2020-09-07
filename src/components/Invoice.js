@@ -74,7 +74,7 @@ class Invoice extends Component {
         <ul >
           <br></br>
           <Container>
-          <Card border="primary" >
+          <Card border="dark" >
           <Card.Header>Invoice Number: {invoice.id}</Card.Header>
           <Card.Body>
           <Col >
@@ -96,15 +96,15 @@ class Invoice extends Component {
               </Col>
             </Row>
           </Col>
-          <Button onClick={() => window.emailjs.send(
+          <Button variant="dark" onClick={() => window.emailjs.send(
                   'service_48zb246', 'template_e56p9sc', templateParams)
                   .then(res => {alert("Email succesfully sent")})
                   .catch(err => {alert("There was an error sending your email")})
                   }>Email Invoice</Button>
                 <b>    </b>
-                <Button onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button>
+                <Button variant="dark" onClick={() => this.handleMarkAsPaid(invoice)}>Mark As {invoice.paid === true ? "Unpaid" : "Paid"}</Button>
                 <b>    </b>
-                <Button onClick={() => this.handleDelete(invoice.id)}>Delete</Button>
+                <Button variant="danger" onClick={() => this.handleDelete(invoice.id)}>Delete</Button>
           </Card.Body>
           </Card>
           </Container>

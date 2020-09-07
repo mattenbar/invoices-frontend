@@ -11,7 +11,9 @@ class CustomersContainer extends React.Component {
 
     return (
       <div>
-        <h1>Customers:</h1><br/>
+        <ul>
+        <h1>Customers:</h1>
+        </ul>
         <ul>
           <Button
             onClick={() =>
